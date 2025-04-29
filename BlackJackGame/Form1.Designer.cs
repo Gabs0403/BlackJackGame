@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnHit = new Button();
+            btnStand = new Button();
+            btnRestart = new Button();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            PlayerPanel = new FlowLayoutPanel();
             pictureBox7 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -41,7 +41,7 @@
             pictureBox1 = new PictureBox();
             pictureBox6 = new PictureBox();
             scoreLabel = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            dealerPanel = new FlowLayoutPanel();
             pictureBox8 = new PictureBox();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
@@ -49,7 +49,9 @@
             pictureBox12 = new PictureBox();
             pictureBox13 = new PictureBox();
             pictureBox14 = new PictureBox();
-            flowLayoutPanel1.SuspendLayout();
+            lblPlayerScore = new Label();
+            lblDealerScore = new Label();
+            PlayerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -57,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            flowLayoutPanel2.SuspendLayout();
+            dealerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
@@ -67,35 +69,38 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnHit
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(380, 676);
-            button1.Name = "button1";
-            button1.Size = new Size(142, 38);
-            button1.TabIndex = 14;
-            button1.Text = "HIT";
-            button1.UseVisualStyleBackColor = true;
+            btnHit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHit.Location = new Point(380, 676);
+            btnHit.Name = "btnHit";
+            btnHit.Size = new Size(142, 38);
+            btnHit.TabIndex = 14;
+            btnHit.Text = "HIT";
+            btnHit.UseVisualStyleBackColor = true;
+            btnHit.Click += btnHit_Click;
             // 
-            // button2
+            // btnStand
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(571, 676);
-            button2.Name = "button2";
-            button2.Size = new Size(142, 38);
-            button2.TabIndex = 15;
-            button2.Text = "STAND";
-            button2.UseVisualStyleBackColor = true;
+            btnStand.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStand.Location = new Point(571, 676);
+            btnStand.Name = "btnStand";
+            btnStand.Size = new Size(142, 38);
+            btnStand.TabIndex = 15;
+            btnStand.Text = "STAND";
+            btnStand.UseVisualStyleBackColor = true;
+            btnStand.Click += btnStand_Click;
             // 
-            // button3
+            // btnRestart
             // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(760, 676);
-            button3.Name = "button3";
-            button3.Size = new Size(142, 38);
-            button3.TabIndex = 16;
-            button3.Text = "RESTART";
-            button3.UseVisualStyleBackColor = true;
+            btnRestart.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRestart.Location = new Point(760, 676);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(142, 38);
+            btnRestart.TabIndex = 16;
+            btnRestart.Text = "RESTART";
+            btnRestart.UseVisualStyleBackColor = true;
+            btnRestart.Click += btnRestart_Click;
             // 
             // label1
             // 
@@ -107,19 +112,19 @@
             label1.TabIndex = 24;
             label1.Text = "Dealer's Score:";
             // 
-            // flowLayoutPanel1
+            // PlayerPanel
             // 
-            flowLayoutPanel1.Controls.Add(pictureBox7);
-            flowLayoutPanel1.Controls.Add(pictureBox3);
-            flowLayoutPanel1.Controls.Add(pictureBox5);
-            flowLayoutPanel1.Controls.Add(pictureBox4);
-            flowLayoutPanel1.Controls.Add(pictureBox2);
-            flowLayoutPanel1.Controls.Add(pictureBox1);
-            flowLayoutPanel1.Controls.Add(pictureBox6);
-            flowLayoutPanel1.Location = new Point(282, 443);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(745, 177);
-            flowLayoutPanel1.TabIndex = 27;
+            PlayerPanel.Controls.Add(pictureBox7);
+            PlayerPanel.Controls.Add(pictureBox3);
+            PlayerPanel.Controls.Add(pictureBox5);
+            PlayerPanel.Controls.Add(pictureBox4);
+            PlayerPanel.Controls.Add(pictureBox2);
+            PlayerPanel.Controls.Add(pictureBox1);
+            PlayerPanel.Controls.Add(pictureBox6);
+            PlayerPanel.Location = new Point(282, 443);
+            PlayerPanel.Name = "PlayerPanel";
+            PlayerPanel.Size = new Size(745, 177);
+            PlayerPanel.TabIndex = 27;
             // 
             // pictureBox7
             // 
@@ -187,19 +192,19 @@
             scoreLabel.TabIndex = 21;
             scoreLabel.Text = "Your Score:";
             // 
-            // flowLayoutPanel2
+            // dealerPanel
             // 
-            flowLayoutPanel2.Controls.Add(pictureBox8);
-            flowLayoutPanel2.Controls.Add(pictureBox9);
-            flowLayoutPanel2.Controls.Add(pictureBox10);
-            flowLayoutPanel2.Controls.Add(pictureBox11);
-            flowLayoutPanel2.Controls.Add(pictureBox12);
-            flowLayoutPanel2.Controls.Add(pictureBox13);
-            flowLayoutPanel2.Controls.Add(pictureBox14);
-            flowLayoutPanel2.Location = new Point(282, 48);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(745, 177);
-            flowLayoutPanel2.TabIndex = 28;
+            dealerPanel.Controls.Add(pictureBox8);
+            dealerPanel.Controls.Add(pictureBox9);
+            dealerPanel.Controls.Add(pictureBox10);
+            dealerPanel.Controls.Add(pictureBox11);
+            dealerPanel.Controls.Add(pictureBox12);
+            dealerPanel.Controls.Add(pictureBox13);
+            dealerPanel.Controls.Add(pictureBox14);
+            dealerPanel.Location = new Point(282, 48);
+            dealerPanel.Name = "dealerPanel";
+            dealerPanel.Size = new Size(745, 177);
+            dealerPanel.TabIndex = 28;
             // 
             // pictureBox8
             // 
@@ -257,23 +262,43 @@
             pictureBox14.TabIndex = 14;
             pictureBox14.TabStop = false;
             // 
+            // lblPlayerScore
+            // 
+            lblPlayerScore.AutoSize = true;
+            lblPlayerScore.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblPlayerScore.Location = new Point(511, 407);
+            lblPlayerScore.Name = "lblPlayerScore";
+            lblPlayerScore.Size = new Size(0, 21);
+            lblPlayerScore.TabIndex = 29;
+            // 
+            // lblDealerScore
+            // 
+            lblDealerScore.AutoSize = true;
+            lblDealerScore.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblDealerScore.Location = new Point(539, 242);
+            lblDealerScore.Name = "lblDealerScore";
+            lblDealerScore.Size = new Size(0, 21);
+            lblDealerScore.TabIndex = 30;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
             ClientSize = new Size(1333, 758);
+            Controls.Add(lblDealerScore);
+            Controls.Add(lblPlayerScore);
             Controls.Add(label1);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(PlayerPanel);
             Controls.Add(scoreLabel);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(flowLayoutPanel2);
+            Controls.Add(btnRestart);
+            Controls.Add(btnStand);
+            Controls.Add(btnHit);
+            Controls.Add(dealerPanel);
             Name = "Form1";
-            Text = "Form1";
+            Text = "BlackJack";
             Load += Form1_Load;
-            flowLayoutPanel1.ResumeLayout(false);
+            PlayerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -281,7 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            flowLayoutPanel2.ResumeLayout(false);
+            dealerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
@@ -294,11 +319,11 @@
         }
 
         #endregion
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnHit;
+        private Button btnStand;
+        private Button btnRestart;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel PlayerPanel;
         private PictureBox pictureBox7;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;
@@ -307,7 +332,7 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox6;
         private Label scoreLabel;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel dealerPanel;
         private PictureBox pictureBox8;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
@@ -315,5 +340,7 @@
         private PictureBox pictureBox12;
         private PictureBox pictureBox13;
         private PictureBox pictureBox14;
+        private Label lblPlayerScore;
+        private Label lblDealerScore;
     }
 }

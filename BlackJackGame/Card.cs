@@ -11,16 +11,13 @@ namespace BlackJackGame
         public string Suit { get; set; }
         public string Card_name { get; set; }
         public int Value { get; set; }
-        public bool used { get; set; }
-
         public bool hidden { get; set; }
 
-        public Card(string suit, string card_name, int value, bool used, bool hidden)
+        public Card(string suit, string card_name, int value, bool hidden)
         {
             this.Suit = suit;
             this.Card_name = card_name;
             this.Value = value;
-            this.used = used;
             this.hidden = hidden;
 
         }

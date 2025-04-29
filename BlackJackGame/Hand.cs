@@ -9,8 +9,12 @@ namespace BlackJackGame
 {
     internal class Hand
     {
-        Deck Deck;
-        Random Random;
+
+        public List<Card> hand_cards { get; set; }
+        public Hand() {
+            hand_cards = new List<Card>();
+        }
+
 
 
     }
