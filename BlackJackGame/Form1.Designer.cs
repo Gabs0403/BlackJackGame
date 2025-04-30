@@ -295,6 +295,8 @@
             Controls.Add(btnStand);
             Controls.Add(btnHit);
             Controls.Add(dealerPanel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "BlackJack";
             Load += Form1_Load;
